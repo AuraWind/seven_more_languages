@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/peterko/Workspace/personal/seven_more_languages/lua/day3/a/play.cpp
+lua.h
+/Users/peterko/Workspace/personal/seven_more_languages/lua/day3/a/lua.h
+lauxlib.h
+/Users/peterko/Workspace/personal/seven_more_languages/lua/day3/a/lauxlib.h
+lualib.h
+/Users/peterko/Workspace/personal/seven_more_languages/lua/day3/a/lualib.h
+

@@ -1,0 +1,45 @@
+* Easy *
+
+-- Using only * and +, how would you calculate 3^2 + 4^2
+3 dup * 4 dup * + .
+
+
+-- Enter USE: math.functions.  Now, with sq and sqrt calculate 3^2 + 4^2
+3 sq 4 sq + sqrt
+
+
+-- If you had the numbers 1 2 on the stack, what code could you use to end up with 1 1 2 on the stack
+swap dup swap
+
+
+-- Enter USE: ascii. Put your name on the stack.
+-- Write a line of code that puts "Hello, " in front of your name and converts the whole string to uppercase
+"Hello, " swap append >upper
+
+
+* Medium *
+
+-- Using reduce, write a line of code that returns the sum of the numbers 1, 4, 17, 9, 11
+{ 1 4 17 9 11 } 0 [ + ] reduce .
+
+
+-- Calculate the sum of the numbers 1 to 100.  USE: math.ranges and the [1,b] word
+100 [1,b] 0 [ + ] reduce .
+
+
+-- Write a line of code that returns the squares of the numbers 1 to 10
+USE: math.functions
+10 [1,b] [ sq ] map .
+
+
+* Hard *
+
+-- Write a line of code that, given a number between 1 and 99, returns the two digits in the number
+-- Give 42 <your code>, you should get 4 and 2 on the stack
+42 [ 10 /i ] [ 10 mod ] bi
+
+
+-- Repeat the previous exercise for any number of digits.  First convert the number to a string.
+-- Then iterate over each character, converting each character back to a string and then to a number
+USE: math.parser
+42 number>string [ 1string string>number ] each

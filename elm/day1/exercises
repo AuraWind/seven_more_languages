@@ -1,0 +1,40 @@
+* Easy *
+
+-- Write a function to find the product of a list of numbers
+product list = \
+  case list of \
+    [] -> 1 \
+    head::tail -> head * product tail
+
+
+-- Write a function to return all of the x fields from a list of point records
+xValues list = \
+  case list of \
+    [] -> [] \
+    head::tail -> [head.x] ++ xValues tail
+
+
+-- Use records to describe a person containing name, age, and address.  You should also express the address as a record
+person = { name = "Hubert", age = 30, address = { street = "123 Main St", city = "Denver", state = "CO", zip = 80202 } }
+
+-- Is it easier to use abstract data types or records to solve the previous problem? Why?
+Records are easier because using abstract data types would require all possible values for each field.
+
+
+* Medium *
+
+-- Write a function called multiply
+multiply x y = x * y
+
+-- Use currying to express 6 * 8
+multiplyX y = 6 * y
+multiplyX 8
+
+-- Make a list of person records.  Write a function to find all of the people in your list older than 16
+people = [{ name = "Emily", age = 20 }, { name = "Mark", age = 15 }, { name = "Alex", age = 32 }]
+olderThan16 list = List.filter (\x -> x.age > 16) list
+
+
+* Hard *
+
+-- Write the same function, but allow records where the age field might be nothing.  How does Elm support nil values?

@@ -1,0 +1,68 @@
+Elm.Repl = Elm.Repl || {};
+Elm.Repl.make = function (_elm) {
+   "use strict";
+   _elm.Repl = _elm.Repl || {};
+   if (_elm.Repl.values)
+   return _elm.Repl.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "Repl",
+   $Basics = Elm.Basics.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var xValues = function (list) {
+      return function () {
+         switch (list.ctor)
+         {case "::":
+            return A2($Basics._op["++"],
+              list._0.x,
+              xValues(list._1));
+            case "[]":
+            return _L.fromArray([]);}
+         _U.badCase($moduleName,
+         "between lines 12 and 14");
+      }();
+   };
+   var tsol = {ctor: "_Tuple0"};
+   var point2 = {_: {},x: 2,y: 8};
+   var point1 = {_: {},x: 5,y: 4};
+   var person = {_: {}
+                ,address: {_: {}
+                          ,city: "Denver"
+                          ,state: "CO"
+                          ,street: "123 Main St"
+                          ,zip: 80202}
+                ,age: 30
+                ,name: "Hubert"};
+   var people = _L.fromArray([{_: {}
+                              ,age: 20
+                              ,name: "Emily"}
+                             ,{_: {},age: 15,name: "Mark"}
+                             ,{_: {},age: 32,name: "Alex"}]);
+   var olderThan16 = function (list) {
+      return A2($List.filter,
+      function (x) {
+         return _U.cmp(x.age,16) > 0;
+      },
+      list);
+   };
+   var deltron3030 = olderThan16(people);
+   var White = {ctor: "White"};
+   var Black = {ctor: "Black"};
+   _elm.Repl.values = {_op: _op
+                      ,Black: Black
+                      ,White: White
+                      ,deltron3030: deltron3030
+                      ,olderThan16: olderThan16
+                      ,people: people
+                      ,person: person
+                      ,point1: point1
+                      ,point2: point2
+                      ,tsol: tsol
+                      ,xValues: xValues};
+   return _elm.Repl.values;
+};
